@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,11 @@ Route::get('/', function () {
 });
 
 Route::resource('posts', PostController::class);
+
+Route::get('about', function(){
+    $articles = Article::take(3)->latest()->get();
+
+    return view('about', compact('articles'));
+});
+
+Route::resource('articles', ArticleController::class);

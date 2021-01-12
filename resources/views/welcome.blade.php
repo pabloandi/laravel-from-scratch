@@ -1,6 +1,1 @@
-<x-layout>
-
-    <x-footer>
-        fwefwefefwef
-    </x-footer>
-</x-layout>
+<x-main></x-main>

@@ -1,5 +1,5 @@
-<x-layout>
+<x-main>
     <p>
         {{  $post->body }}
     </p>
-</x-layout>
+</x-main>
