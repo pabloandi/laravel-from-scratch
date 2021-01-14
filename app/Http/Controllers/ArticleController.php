@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class ArticleController extends Controller
@@ -73,6 +72,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        $this->authorize('view', $article);
+
         return view('articles.show', compact('article'));
     }
 
@@ -84,6 +85,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
+        $this->authorize('update', $article);
+
         return view('articles.edit', compact('article'));
     }
 

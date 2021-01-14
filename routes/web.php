@@ -25,6 +25,10 @@ Route::resource('posts', PostController::class);
 Route::get('articles/tag/{tag}', [ArticleController::class, 'index']);
 Route::resource('articles', ArticleController::class);
 
+Route::get('reports', function () {
+    return 'reports';
+})->middleware('can:view_reports')->name('reports');
+
 
 Auth::routes();
 
