@@ -22,10 +22,10 @@ Route::get('/', function () {
 
 Route::resource('posts', PostController::class);
 
-Route::get('about', function(){
-    $articles = Article::take(3)->latest()->get();
-
-    return view('about', compact('articles'));
-});
-
+Route::get('articles/tag/{tag}', [ArticleController::class, 'index']);
 Route::resource('articles', ArticleController::class);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

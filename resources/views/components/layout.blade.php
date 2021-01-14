@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/font.css">
     <link rel="stylesheet" href="/css/app.css">
+    @yield('head')
 </head>
 <body>
 	{{ $slot }}

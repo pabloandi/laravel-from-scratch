@@ -7,10 +7,11 @@
     <div id="wrapper">
         <div id="page" class="container">
             <div id="content">
-                <h1 class="heading has-text-weight-bold is-size-4">New Article</h1>
+                <h1 class="heading has-text-weight-bold is-size-4">Edit Article {{ $article->title }}</h1>
 
-                <form action="{{ route('articles.store') }}" method="post">
-                    @include('articles._form', compact('article', 'tags'))
+                <form action="{{ route('articles.update', $article) }}" method="POST">
+                    @method('PUT')
+                    @include('articles._form', compact('article'))
                 </form>
             </div>
 

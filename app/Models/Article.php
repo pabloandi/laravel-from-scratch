@@ -9,6 +9,10 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title','slug','excerpt','body','user_id'
+    ];
+
     /**
      * Get the route key for the model.
      *
@@ -17,5 +21,20 @@ class Article extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function path()
+    {
+        return route('articles.show', $this);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 }
